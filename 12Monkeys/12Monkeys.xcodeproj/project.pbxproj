@@ -14,19 +14,11 @@
 		DACC642D1C6E9D5900A9C04D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACC642B1C6E9D5900A9C04D /* Main.storyboard */; };
 		DACC642F1C6E9D5900A9C04D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACC642E1C6E9D5900A9C04D /* Assets.xcassets */; };
 		DACC64321C6E9D5900A9C04D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACC64301C6E9D5900A9C04D /* LaunchScreen.storyboard */; };
-		DACC64451C6E9D9700A9C04D /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC643A1C6E9D9700A9C04D /* banana.png */; };
-		DACC64461C6E9D9700A9C04D /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC643B1C6E9D9700A9C04D /* banana@2x.png */; };
 		DACC64471C6E9D9700A9C04D /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = DACC643C1C6E9D9700A9C04D /* hitBuilding.sks */; };
 		DACC64481C6E9D9700A9C04D /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = DACC643D1C6E9D9700A9C04D /* hitPlayer.sks */; };
-		DACC64491C6E9D9700A9C04D /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC643E1C6E9D9700A9C04D /* player.png */; };
-		DACC644A1C6E9D9700A9C04D /* player1Throw.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC643F1C6E9D9700A9C04D /* player1Throw.png */; };
-		DACC644B1C6E9D9700A9C04D /* player1Throw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC64401C6E9D9700A9C04D /* player1Throw@2x.png */; };
-		DACC644C1C6E9D9700A9C04D /* player2Throw.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC64411C6E9D9700A9C04D /* player2Throw.png */; };
-		DACC644D1C6E9D9700A9C04D /* player2Throw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC64421C6E9D9700A9C04D /* player2Throw@2x.png */; };
-		DACC644E1C6E9D9700A9C04D /* player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC64431C6E9D9700A9C04D /* player@2x.png */; };
-		DACC644F1C6E9D9700A9C04D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = DACC64441C6E9D9700A9C04D /* spark.png */; };
 		DACC64511C6E9D9E00A9C04D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC64501C6E9D9E00A9C04D /* Helper.swift */; };
 		DACC64531C6EBA6400A9C04D /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC64521C6EBA6400A9C04D /* BuildingNode.swift */; };
+		DACC64561C6EC79B00A9C04D /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = DACC64551C6EC79B00A9C04D /* assets.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,19 +31,11 @@
 		DACC642E1C6E9D5900A9C04D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DACC64311C6E9D5900A9C04D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DACC64331C6E9D5900A9C04D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DACC643A1C6E9D9700A9C04D /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
-		DACC643B1C6E9D9700A9C04D /* banana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banana@2x.png"; sourceTree = "<group>"; };
 		DACC643C1C6E9D9700A9C04D /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitBuilding.sks; sourceTree = "<group>"; };
 		DACC643D1C6E9D9700A9C04D /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitPlayer.sks; sourceTree = "<group>"; };
-		DACC643E1C6E9D9700A9C04D /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		DACC643F1C6E9D9700A9C04D /* player1Throw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player1Throw.png; sourceTree = "<group>"; };
-		DACC64401C6E9D9700A9C04D /* player1Throw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player1Throw@2x.png"; sourceTree = "<group>"; };
-		DACC64411C6E9D9700A9C04D /* player2Throw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2Throw.png; sourceTree = "<group>"; };
-		DACC64421C6E9D9700A9C04D /* player2Throw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2Throw@2x.png"; sourceTree = "<group>"; };
-		DACC64431C6E9D9700A9C04D /* player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player@2x.png"; sourceTree = "<group>"; };
-		DACC64441C6E9D9700A9C04D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		DACC64501C6E9D9E00A9C04D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DACC64521C6EBA6400A9C04D /* BuildingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
+		DACC64551C6EC79B00A9C04D /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +78,7 @@
 				DACC642E1C6E9D5900A9C04D /* Assets.xcassets */,
 				DACC64301C6E9D5900A9C04D /* LaunchScreen.storyboard */,
 				DACC64331C6E9D5900A9C04D /* Info.plist */,
+				DACC64551C6EC79B00A9C04D /* assets.atlas */,
 				DACC64391C6E9D9700A9C04D /* Content */,
 			);
 			path = 12Monkeys;
@@ -102,17 +87,8 @@
 		DACC64391C6E9D9700A9C04D /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				DACC643A1C6E9D9700A9C04D /* banana.png */,
-				DACC643B1C6E9D9700A9C04D /* banana@2x.png */,
 				DACC643C1C6E9D9700A9C04D /* hitBuilding.sks */,
 				DACC643D1C6E9D9700A9C04D /* hitPlayer.sks */,
-				DACC643E1C6E9D9700A9C04D /* player.png */,
-				DACC643F1C6E9D9700A9C04D /* player1Throw.png */,
-				DACC64401C6E9D9700A9C04D /* player1Throw@2x.png */,
-				DACC64411C6E9D9700A9C04D /* player2Throw.png */,
-				DACC64421C6E9D9700A9C04D /* player2Throw@2x.png */,
-				DACC64431C6E9D9700A9C04D /* player@2x.png */,
-				DACC64441C6E9D9700A9C04D /* spark.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -176,21 +152,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACC644B1C6E9D9700A9C04D /* player1Throw@2x.png in Resources */,
-				DACC644E1C6E9D9700A9C04D /* player@2x.png in Resources */,
 				DACC64261C6E9D5900A9C04D /* GameScene.sks in Resources */,
 				DACC64321C6E9D5900A9C04D /* LaunchScreen.storyboard in Resources */,
-				DACC64491C6E9D9700A9C04D /* player.png in Resources */,
 				DACC642F1C6E9D5900A9C04D /* Assets.xcassets in Resources */,
+				DACC64561C6EC79B00A9C04D /* assets.atlas in Resources */,
 				DACC64471C6E9D9700A9C04D /* hitBuilding.sks in Resources */,
-				DACC644C1C6E9D9700A9C04D /* player2Throw.png in Resources */,
-				DACC64461C6E9D9700A9C04D /* banana@2x.png in Resources */,
 				DACC642D1C6E9D5900A9C04D /* Main.storyboard in Resources */,
-				DACC644F1C6E9D9700A9C04D /* spark.png in Resources */,
 				DACC64481C6E9D9700A9C04D /* hitPlayer.sks in Resources */,
-				DACC64451C6E9D9700A9C04D /* banana.png in Resources */,
-				DACC644A1C6E9D9700A9C04D /* player1Throw.png in Resources */,
-				DACC644D1C6E9D9700A9C04D /* player2Throw@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
