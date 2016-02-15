@@ -6,7 +6,8 @@
 //  Copyright (c) 2016 jhampac. All rights reserved.
 //
 
-enum CollisionTypes: UInt32 {
+enum CollisionTypes: UInt32
+{
     case Banana = 1
     case Building = 2
     case Player = 4
@@ -50,36 +51,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBeginContact(contact: SKPhysicsContact)
+    {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
-        } else {
+        }
+        else
+        {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
         
-        if let firstNode = firstBody.node {
-            if let secondNode = secondBody.node {
-                if firstNode.name == "banana" && secondNode.name == "building" {
+        if let firstNode = firstBody.node
+        {
+            if let secondNode = secondBody.node
+            {
+                if firstNode.name == "banana" && secondNode.name == "building"
+                {
                     bananaHitBuilding(secondNode as! BuildingNode, atPoint: contact.contactPoint)
                 }
                 
-                if firstNode.name == "banana" && secondNode.name == "player1" {
+                if firstNode.name == "banana" && secondNode.name == "player1"
+                {
                     destroyPlayer(player1)
                 }
                 
-                if firstNode.name == "banana" && secondNode.name == "player2" {
+                if firstNode.name == "banana" && secondNode.name == "player2"
+                {
                     destroyPlayer(player2)
                 }
             }
         }
     }
     
-    func createBuildings() {
+    func createBuildings()
+    {
         var currentX: CGFloat = -15
         
         while currentX < 1024 {
@@ -95,7 +105,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
-    func createPlayers() {
+    func createPlayers()
+    {
         player1 = SKSpriteNode(imageNamed: "player")
         player1.name = "player1"
         player1.physicsBody = SKPhysicsBody(circleOfRadius: player1.size.width / 2)
@@ -121,7 +132,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         addChild(player2)
     }
     
-    func deg2rad(degrees: Int) -> Double {
+    func deg2rad(degrees: Int) -> Double
+    {
         return Double(degrees) * M_PI / 180.0
     }
     
@@ -163,7 +175,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             // 6
             let impulse = CGVector(dx: cos(radians) * speed, dy: sin(radians) * speed)
             banana.physicsBody?.applyImpulse(impulse)
-        } else {
+        }
+        else
+        {
             // 7
             banana.position = CGPoint(x: player2.position.x + 30, y: player2.position.y + 40)
             banana.physicsBody!.angularVelocity = 20
@@ -179,7 +193,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
-    func destroyPlayer(player: SKSpriteNode) {
+    func destroyPlayer(player: SKSpriteNode)
+    {
         let explosion = SKEmitterNode(fileNamed: "hitPlayer")!
         explosion.position = player.position
         addChild(explosion)
@@ -201,17 +216,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
-    func changePlayer() {
-        if currentPlayer == 1 {
+    func changePlayer()
+    {
+        if currentPlayer == 1
+        {
             currentPlayer = 2
-        } else {
+        }
+        else
+        {
             currentPlayer = 1
         }
         
         viewController.activatePlayerNumber(currentPlayer)
     }
     
-    func bananaHitBuilding(building: BuildingNode, atPoint contactPoint: CGPoint) {
+    func bananaHitBuilding(building: BuildingNode, atPoint contactPoint: CGPoint)
+    {
         let buildingLocation = convertPoint(contactPoint, toNode: building)
         building.hitAtPoint(buildingLocation)
         
