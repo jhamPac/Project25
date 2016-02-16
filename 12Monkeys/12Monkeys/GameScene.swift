@@ -13,17 +13,21 @@ enum CollisionTypes: UInt32
     case Player = 4
 }
 
+protocol GameSceneControllerDelegate: class
+{
+    func activatePlayerNumber(number: Int)
+}
+
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate
+class GameScene: SKScene, SKPhysicsContactDelegate, LaunchDelegate
 {
     var buildings = [BuildingNode]()
-    weak var viewController: GameViewController!
-    
+    var viewController: GameViewController?
     var player1: SKSpriteNode!
     var player2: SKSpriteNode!
     var banana: SKSpriteNode!
-    
+    weak var sceneDelegate: GameSceneControllerDelegate?
     var currentPlayer = 1
     
     override func didMoveToView(view: SKView)
@@ -203,15 +207,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         banana?.removeFromParent()
         
         RunAfterDelay(2) { [unowned self] in
-            let newGame = GameScene(size: self.size)
-            newGame.viewController = self.viewController
-            self.viewController.currentGame = newGame
             
             self.changePlayer()
-            newGame.currentPlayer = self.currentPlayer
-            
-            let transition = SKTransition.doorwayWithDuration(1.5)
-            self.view?.presentScene(newGame, transition: transition)
+            NSNotificationCenter.defaultCenter().postNotificationName("gameOver", object: nil)
             
         }
     }
@@ -227,7 +225,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             currentPlayer = 1
         }
         
-        viewController.activatePlayerNumber(currentPlayer)
+        sceneDelegate?.activatePlayerNumber(currentPlayer)
     }
     
     func bananaHitBuilding(building: BuildingNode, atPoint contactPoint: CGPoint)

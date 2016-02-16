@@ -9,9 +9,15 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController
+protocol LaunchDelegate: class
+{
+    func launch(angle angle: Int, velocity: Int)
+}
+
+class GameViewController: UIViewController, GameSceneControllerDelegate
 {
     var currentGame: GameScene!
+    weak var launchDelegate: LaunchDelegate?
     
     @IBOutlet weak var angleSlider: UISlider!
     @IBOutlet weak var angleLabel: UILabel!
@@ -38,13 +44,19 @@ class GameViewController: UIViewController
         velocityLabel.hidden = true
         
         launchButton.hidden = true
-        currentGame.launch(angle: Int(angleSlider.value), velocity: Int(velocitySlider.value))
+        
+        if let delegate = launchDelegate
+        {
+            delegate.launch(angle: Int(angleSlider.value), velocity: Int(velocitySlider.value))
+        }
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        if let scene = GameScene(fileNamed:"GameScene") {
+        if let scene = GameScene(fileNamed:"GameScene")
+        {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = false
@@ -55,37 +67,48 @@ class GameViewController: UIViewController
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
+            launchDelegate = scene
+            scene.sceneDelegate = self
             
             skView.presentScene(scene)
             
-            currentGame = scene
-            scene.viewController = self
-            
             angleChanged(angleSlider)
             velocityChanged(velocitySlider)
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "gameOver", object: nil)
         }
     }
 
-    override func shouldAutorotate() -> Bool {
+    override func shouldAutorotate() -> Bool
+    {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+    {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        {
             return .AllButUpsideDown
-        } else {
+        }
+        else
+        {
             return .All
         }
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override func prefersStatusBarHidden() -> Bool
+    {
         return true
     }
     
-    func activatePlayerNumber(number: Int) {
-        if number == 1 {
+    func activatePlayerNumber(number: Int)
+    {
+        if number == 1
+        {
             playerNumber.text = "<<< PLAYER ONE"
-        } else {
+        }
+        else
+        {
             playerNumber.text = "PLAYER TWO >>>"
         }
         
@@ -96,5 +119,30 @@ class GameViewController: UIViewController
         velocityLabel.hidden = false
         
         launchButton.hidden = false
+    }
+    
+    func restartGame()
+    {
+        if let scene = GameScene(fileNamed:"GameScene")
+        {
+            // Configure the view.
+            let skView = self.view as! SKView
+            skView.showsFPS = false
+            skView.showsNodeCount = false
+            
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
+            
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .AspectFill
+            launchDelegate = scene
+            scene.sceneDelegate = self
+            
+            let transition = SKTransition.doorwayWithDuration(1.5)
+            skView.presentScene(scene, transition: transition)
+            
+            angleChanged(angleSlider)
+            velocityChanged(velocitySlider)
+        }
     }
 }
