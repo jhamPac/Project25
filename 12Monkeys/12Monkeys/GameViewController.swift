@@ -78,6 +78,10 @@ class GameViewController: UIViewController, GameSceneControllerDelegate
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "restartGame", name: "gameOver", object: nil)
         }
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
     override func shouldAutorotate() -> Bool
     {
